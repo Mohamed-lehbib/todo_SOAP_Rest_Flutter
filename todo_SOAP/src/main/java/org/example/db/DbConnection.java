@@ -9,7 +9,7 @@ public class DbConnection {
     private static DbConnection instance;
     private Connection connection;
     private String url = "jdbc:postgresql://localhost:5435/";
-    private String bdd="financial_data";
+    private String bdd="todo_db";
     private String username = "postgres";
     private String password = "postgres";
 
@@ -36,7 +36,7 @@ public class DbConnection {
         return instance;
     }
 
-    // public static void main(String[] args) {
+    //public static void main(String[] args) {
     //    try {
     //        DbConnection.getInstance().getConnection();
     //    } catch (SQLException e) {
