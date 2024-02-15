@@ -21,3 +21,5 @@ Y
 )src/main/java/org/example/model/Todo.java,9/4/940f9ff936deaf787c847702df6c107288bb07d2
 ^
 .src/main/java/org/example/db/DbConnection.java,0/d/0d543b04f67ef55c1394bc4eeb544dd81b312c55
+k
+;src/main/java/org/example/service/TodoServicePublisher.java,e/0/e0b7f1866f2be3875dc4f243731a0a9aaab9b27d
