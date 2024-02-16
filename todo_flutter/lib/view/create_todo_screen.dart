@@ -67,6 +67,8 @@ class CreateTodoScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           textStyle: const TextStyle(fontSize: 20),
                           fixedSize: const Size(200, 50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
                         ),
                         child: const Text("Create"),
                       ),

@@ -3,12 +3,6 @@
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 S
 #src/main/java/org/example/Main.java,0/b/0ba1b9c7a4878802f938e331cc2d8a042087ec6b
-Y
-)src/main/java/org/example/model/Task.java,6/0/60503b8adb853737c67b144d1963645df6fbab1b
-Z
-*src/main/java/org/example/dao/TaskDAO.java,1/c/1ca08781b9b414b6a5325ab77de34024747a5ab2
-^
-.src/main/java/org/example/dao/TaskDAOImpl.java,b/f/bf25c5bff6aef59b9db9afa9dd8601e36bde1997
 b
 2src/main/java/org/example/service/TodoService.java,a/a/aaccdfab6de6fe886dcd2bea97f32a23fe00d366
 f

@@ -1,6 +1,6 @@
 
 G	java:S106"+Replace this use of System.out by a logger.(φΧ•8μ”χΪ1
 Z
-java:S1128"8Remove this unused import 'org.example.dao.TodoDAOImpl'.(Ζ…άψÿÿÿÿ8έ¬‡ϊΪ1
+java:S1128"8Remove this unused import 'org.example.dao.TodoDAOImpl'.(Ζ…άψÿÿÿÿ8Ε€ΥΫ1
 v
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(Φ™ÿωÿÿÿÿ8›Τ’χΪ1
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(Φ™ÿωÿÿÿÿ8Ε€ΥΫ1
