@@ -95,10 +95,11 @@ public class TodoDAOImpl implements TodoDAO {
     }
 
     @Override
-    public void updateTodoStatusToTrue(Long id) {
-        String sql = "UPDATE todos SET status = TRUE WHERE id = ?";
+    public void updateTodoStatus(Long id, boolean status) {
+        String sql = "UPDATE todos SET status = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setLong(1, id);
+            statement.setBoolean(1, status);
+            statement.setLong(2, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

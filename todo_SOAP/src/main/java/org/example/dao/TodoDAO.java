@@ -10,5 +10,5 @@ public interface TodoDAO {
     void addTodo(Todo todo);
     void updateTodo(Todo todo);
     void deleteTodo(Long id);
-    void updateTodoStatusToTrue(Long id);
+    void updateTodoStatus(Long id, boolean status);
 }

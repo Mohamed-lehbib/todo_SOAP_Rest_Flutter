@@ -1,18 +1,17 @@
-package org.example.service.impl;
+package org.example.service;
 
+import jakarta.jws.WebService;
 import org.example.dao.TodoDAO;
 import org.example.dao.TodoDAOImpl;
 import org.example.model.Todo;
 import org.example.service.TodoService;
 import java.util.List;
 
+@WebService
 public class TodoServiceImpl implements TodoService {
 
     private TodoDAO todoDAO;
 
-    public TodoServiceImpl(TodoDAO todoDAO) {
-        this.todoDAO = todoDAO;
-    }
 
     // Constructor injection of the DAO
     public TodoServiceImpl() {
@@ -45,7 +44,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void updateTodoStatusToTrue(Long id) {
-        todoDAO.updateTodoStatusToTrue(id);
+    public void updateTodoStatus(Long id, boolean status) {
+        todoDAO.updateTodoStatus(id, status);
     }
 }
