@@ -9,9 +9,12 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Todo {
+public class TodoModel {
     private Long id;
     private String name;
     private String description;
     private Boolean status;
+
+
+    public Boolean isStatus() {return status;}
 }
