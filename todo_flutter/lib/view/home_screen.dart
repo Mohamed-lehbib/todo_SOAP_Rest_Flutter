@@ -12,19 +12,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Obx(
-            () => Icon(todoController.themeMode.value == ThemeMode.dark
-                ? Icons.dark_mode
-                : Icons.light_mode),
+        actions: [
+          IconButton(
+            icon: Obx(
+              () => Icon(todoController.themeMode.value == ThemeMode.dark
+                  ? Icons.dark_mode
+                  : Icons.light_mode),
+            ),
+            onPressed: () {
+              todoController.changeTheme(
+                  todoController.themeMode.value == ThemeMode.dark
+                      ? ThemeMode.light
+                      : ThemeMode.dark);
+            },
           ),
-          onPressed: () {
-            todoController.changeTheme(
-                todoController.themeMode.value == ThemeMode.dark
-                    ? ThemeMode.light
-                    : ThemeMode.dark);
-          },
-        ),
+        ],
         title: const Text('To-Do'),
       ),
       body: Column(
@@ -55,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       children: [
                         const Text(
-                          'UnDone',
+                          'Pending',
                           style: TextStyle(fontSize: 20),
                         ),
                         Obx(() => Text(

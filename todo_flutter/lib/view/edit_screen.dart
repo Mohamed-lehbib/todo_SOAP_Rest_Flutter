@@ -36,67 +36,72 @@ class EditTodoScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 40),
                 ),
               ),
-              const SizedBox(height: 40),
-              Form(
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                        labelText: "Name",
-                        hintText: "Enter Todo Name",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    TextField(
-                      controller: descriptionController,
-                      maxLines: 3,
-                      decoration: const InputDecoration(
-                        labelText: "Description",
-                        hintText: "Enter Todo Description",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Call the editTodo function with the ID and the todo
-                        todoController.editTodo(
-                            todo.id,
-                            Todo(
-                              id: todo.id,
-                              title: nameController.text,
-                              description: descriptionController.text,
-                              completed: todo.completed,
-                            ));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 20),
-                        fixedSize: const Size(200, 50),
-                      ),
-                      child: const Text("Update"),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Text(
-                            "Cancel",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+              const SizedBox(height: 60),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                          labelText: "Name",
+                          hintText: "Enter Todo Name",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
-                        )
-                      ],
-                    )
-                  ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      TextField(
+                        controller: descriptionController,
+                        maxLines: 3,
+                        decoration: const InputDecoration(
+                          labelText: "Description",
+                          hintText: "Enter Todo Description",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 60),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Call the editTodo function with the ID and the todo
+                          todoController.editTodo(
+                              todo.id,
+                              Todo(
+                                id: todo.id,
+                                title: nameController.text,
+                                description: descriptionController.text,
+                                completed: todo.completed,
+                              ));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 20),
+                          fixedSize: const Size(200, 50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
+                        child: const Text("Update"),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: const Text(
+                              "Cancel",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

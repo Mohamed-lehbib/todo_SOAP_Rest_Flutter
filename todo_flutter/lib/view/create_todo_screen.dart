@@ -27,63 +27,66 @@ class CreateTodoScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 40),
                 ),
               ),
-              const SizedBox(height: 40),
-              Form(
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                        labelText: "Name",
-                        hintText: "Enter Todo Name",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    TextField(
-                      controller: descriptionController,
-                      maxLines: 3,
-                      decoration: const InputDecoration(
-                        labelText: "Description",
-                        hintText: "Enter Todo Description",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Call the createTodo function with the new todo data
-                        todoController.createTodo(
-                          nameController.text,
-                          descriptionController.text,
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 20),
-                        fixedSize: const Size(200, 50),
-                      ),
-                      child: const Text("Create"),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Text(
-                            "Cancel",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+              const SizedBox(height: 60),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                          labelText: "Name",
+                          hintText: "Enter Todo Name",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
-                        )
-                      ],
-                    )
-                  ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      TextField(
+                        controller: descriptionController,
+                        maxLines: 3,
+                        decoration: const InputDecoration(
+                          labelText: "Description",
+                          hintText: "Enter Todo Description",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 60),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Call the createTodo function with the new todo data
+                          todoController.createTodo(
+                            nameController.text,
+                            descriptionController.text,
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 20),
+                          fixedSize: const Size(200, 50),
+                        ),
+                        child: const Text("Create"),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: const Text(
+                              "Cancel",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
