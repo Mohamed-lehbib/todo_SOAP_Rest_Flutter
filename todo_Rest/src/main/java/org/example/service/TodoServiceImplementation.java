@@ -3,7 +3,6 @@ package org.example.service;
 import org.example.model.TodoModel;
 import org.example.soapclient.*;
 
-import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +12,8 @@ public class TodoServiceImplementation implements TodoService {
 
     public TodoServiceImplementation() {
         try {
-            // Assuming TodoServiceImplService is generated from the WSDL
             URL wsdlLocation = new URL("http://localhost:3334/todoService?wsdl");
-            QName qname = new QName("http://service.example.org/", "TodoServiceImplService");
-            TodoServiceImplService service = new TodoServiceImplService(wsdlLocation, qname);
+            TodoServiceImplService service = new TodoServiceImplService(wsdlLocation);
             port = service.getTodoServiceImplPort();
         } catch (Exception e) {
             e.printStackTrace();
@@ -26,81 +23,68 @@ public class TodoServiceImplementation implements TodoService {
     @Override
     public List<TodoModel> getAllTodos() {
         List<TodoModel> todos = new ArrayList<>();
-        // Call the SOAP method, assuming direct invocation returns the response
-        GetAllTodosResponse response = port.getAllTodos();
-        for (Todo todo : response.getTodo()) {
-            todos.add(mapToTodoModel(todo));
+        List<Todo> todoList = port.getAllTodos(); // Directly receive the list of todos
+        if (todoList != null) { // Check if the list is not null
+            for (Todo todo : todoList) { // Iterate over the returned list
+                todos.add(mapToTodoModel(todo)); // Convert and add to the list of TodoModel
+            }
         }
         return todos;
     }
 
+
     @Override
     public TodoModel getTodoById(Long id) {
-        // Prepare the request
-        GetTodoById request = new GetTodoById();
-        request.setId(id);
-        // Call the SOAP service
-        GetTodoByIdResponse response = port.getTodoById(request);
-        // Assuming response has a single Todo object
-        return mapToTodoModel(response.getTodo());
+        // Directly pass the ID to the getTodoById method
+        Todo todo = port.getTodoById(id);
+        // Check if todo is not null before mapping
+        if (todo != null) {
+            return mapToTodoModel(todo);
+        }
+        return null; // or handle this case as needed
     }
 
     @Override
     public void addTodo(TodoModel todoModel) {
-        // Prepare the request
-        AddTodo request = new AddTodo();
+        // Convert your model to the SOAP Todo object
         Todo todo = mapToTodoType(todoModel);
-        request.setTodo(todo);
-        // Call the SOAP service
-        port.addTodo(request);
+        // Directly pass the Todo object to the addTodo method
+        port.addTodo(todo);
     }
 
     @Override
     public void updateTodoStatus(Long id, boolean status) {
-        // Prepare the request
-        UpdateTodoStatus request = new UpdateTodoStatus();
-        request.setId(id);
-        request.setStatus(status);
-        // Call the SOAP service
-        port.updateTodoStatus(request);
+        // Pass the individual arguments to the updateTodoStatus method
+        port.updateTodoStatus(id, status);
     }
 
     @Override
     public void updateTodo(TodoModel todoModel) {
-        // Prepare the request
-        UpdateTodo request = new UpdateTodo();
-        Todo todo = mapToTodoType(todoModel);
-        request.setTodo(todo);
-        // Call the SOAP service
-        port.updateTodo(request);
+        Todo todo = mapToTodoType(todoModel); // Convert TodoModel to Todo
+        port.updateTodo(todo); // Pass Todo object to the updateTodo method
     }
 
     @Override
     public void deleteTodo(Long id) {
-        // Prepare the request
-        DeleteTodo request = new DeleteTodo();
-        request.setId(id);
-        // Call the SOAP service
-        port.deleteTodo(request);
+        port.deleteTodo(id);
     }
 
-    // Utility method to convert SOAP client's Todo to TodoModel
-    private TodoModel mapToTodoModel(Todo todoType) {
-        TodoModel todo = new TodoModel();
-        todo.setId(todoType.getId());
-        todo.setName(todoType.getName());
-        todo.setDescription(todoType.getDescription());
-        todo.setStatus(todoType.isStatus());
-        return todo;
+
+    private TodoModel mapToTodoModel(Todo todo) {
+        TodoModel model = new TodoModel();
+        model.setId(todo.getId());
+        model.setName(todo.getName());
+        model.setDescription(todo.getDescription());
+        model.setStatus(todo.isStatus());
+        return model;
     }
 
-    // Utility method to convert TodoModel to SOAP client's Todo for requests
-    private Todo mapToTodoType(TodoModel todoModel) {
+    private Todo mapToTodoType(TodoModel model) {
         Todo todo = new Todo();
-        todo.setId(todoModel.getId());
-        todo.setName(todoModel.getName());
-        todo.setDescription(todoModel.getDescription());
-        todo.setStatus(todoModel.isStatus());
+        todo.setId(model.getId());
+        todo.setName(model.getName());
+        todo.setDescription(model.getDescription());
+        todo.setStatus(model.isStatus());
         return todo;
     }
 }
