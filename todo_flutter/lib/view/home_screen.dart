@@ -29,40 +29,44 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Done',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      Text('UnDone', style: TextStyle(fontSize: 20)),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Obx(() => Text(
-                            todoController.doneCount.value.toString(),
-                            style: const TextStyle(
-                                color: Colors.green, fontSize: 30),
-                          )),
-                      Obx(() => Text(
-                            todoController.undoneCount.value.toString(),
-                            style: const TextStyle(
-                                color: Colors.red, fontSize: 30),
-                          )),
-                    ],
-                  ),
-                ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        const Text(
+                          'Done',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Obx(() => Text(
+                              todoController.doneCount.value.toString(),
+                              style: const TextStyle(
+                                  color: Colors.green, fontSize: 30),
+                            )),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        const Text(
+                          'UnDone',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Obx(() => Text(
+                              todoController.undoneCount.value.toString(),
+                              style: const TextStyle(
+                                  color: Colors.red, fontSize: 30),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -3,8 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:todo_flutter/model/todo.dart';
 
 class TodoService {
-  final String baseUrl =
-      'https://534f-41-188-106-66.ngrok-free.app'; // Include API endpoint path
+  final String baseUrl = 'http://localhost:3333'; // Include API endpoint path
+  // final String baseUrl =
+  //     'https://534f-41-188-106-66.ngrok-free.app'; // Include API endpoint path
 
   Future<List<Todo>> fetchTodos() async {
     final response = await http.get(Uri.parse('$baseUrl/todos'));
