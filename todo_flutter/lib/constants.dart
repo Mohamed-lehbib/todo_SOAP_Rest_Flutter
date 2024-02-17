@@ -20,7 +20,6 @@ final ThemeData lightTheme = ThemeData(
       foregroundColor: Colors.black, // Couleur du texte pour les boutons
     ),
   ),
-  // Autres personnalisations...
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -46,5 +45,4 @@ final ThemeData darkTheme = ThemeData(
           Colors.white, // Couleur du texte adaptée pour le mode sombre
     ),
   ),
-  // Autres personnalisations pour le mode sombre...
 );

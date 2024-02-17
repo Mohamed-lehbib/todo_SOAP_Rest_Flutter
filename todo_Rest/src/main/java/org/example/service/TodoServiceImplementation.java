@@ -41,7 +41,7 @@ public class TodoServiceImplementation implements TodoService {
         if (todo != null) {
             return mapToTodoModel(todo);
         }
-        return null; // or handle this case as needed
+        return null;
     }
 
     @Override

@@ -15,7 +15,7 @@ public class TodoServiceImpl implements TodoService {
 
     // Constructor injection of the DAO
     public TodoServiceImpl() {
-        this.todoDAO = new TodoDAOImpl(); // Or use dependency injection if available
+        this.todoDAO = new TodoDAOImpl();
     }
 
     @Override

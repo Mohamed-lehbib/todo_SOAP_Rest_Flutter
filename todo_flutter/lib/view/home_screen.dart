@@ -105,8 +105,7 @@ class HomeScreen extends StatelessWidget {
                             // Delete action
                             todoController.deleteTodo(todo.id);
                           } else if (direction == DismissDirection.endToStart) {
-                            // Modify action
-                            // Navigate to edit screen or show a dialog
+                            // Navigate to edit screen
                             Get.toNamed('/edit', arguments: todo);
                           }
                         },
