@@ -44,8 +44,19 @@ lib/
 Then I have created the **Screens** and then i have created the **logic**.
 
 ## Screens
+
 - Home Screen
 <p align="center">
   <img src="readme_todo_screens/homescreen_light.png" alt="Description Image 1" width="400"/>
   <img src="readme_todo_screens/homescreen_dark.png" alt="Description Image 2" width="400"/> 
+</p>
+- Create Todo Screen
+<p align="center">
+  <img src="readme_todo_screens/createtodoscreen_light.png" alt="Description Image 1" width="400"/>
+  <img src="readme_todo_screens/createtodoscreen_dark.png" alt="Description Image 2" width="400"/> 
+</p>
+- Edit & Delete Todo Screen
+<p align="center">
+  <img src="readme_todo_screens/edit_dark.png" alt="Description Image 1" width="400"/>
+  <img src="readme_todo_screens/delete_light.png" alt="Description Image 2" width="400"/> 
 </p>
